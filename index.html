@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKYMAN GROUP - USA Trucking Services</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-dark sticky-top" id="navbar">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1 fw-bold">SKYMAN GROUP</span>
+            <ul class="nav nav-pills gap-3">
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <canvas id="heroCanvas"></canvas>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">SKYMAN GROUP</h1>
+            <p class="hero-subtitle">Skyman Group never lets the customer down.</p>
+            <button class="btn btn-lg cta-button" onclick="scrollToSection('#contact')">Get a Quote</button>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Our Services</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="service-card text-center">
+                        <div class="service-icon">
+                            <i class="icon">🌐</i>
+                        </div>
+                        <h3>Nationwide Freight</h3>
+                        <p>Reliable transportation across all 50 states with dedicated routing and real-time tracking.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card text-center">
+                        <div class="service-icon">
+                            <i class="icon">⏱️</i>
+                        </div>
+                        <h3>On-time Delivery</h3>
+                        <p>Guaranteed on-time performance with professional drivers and efficient logistics planning.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card text-center">
+                        <div class="service-icon">
+                            <i class="icon">🛡️</i>
+                        </div>
+                        <h3>Safety & Compliance</h3>
+                        <p>Fully licensed and insured with adherence to all DOT regulations and safety standards.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-4">About SKYMAN GROUP</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <p class="lead mb-3">
+                        With over a decade of trusted service in the trucking industry, SKYMAN GROUP is committed to
+                        delivering excellence on every route.
+                    </p>
+                    <p class="mb-3">
+                        Our customer-first approach ensures your freight arrives safely, on time, and in perfect
+                        condition. We believe in building long-term partnerships with our clients.
+                    </p>
+                    <p>
+                        From coast to coast, SKYMAN GROUP keeps America moving.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Get in Touch</h2>
+            <div class="row">
+                <div class="col-lg-6 mx-auto">
+                    <form id="contactForm" class="contact-form">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="tel" class="form-control" id="phone" placeholder="Phone Number" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" id="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" id="message" rows="5" placeholder="Your Message"
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 btn-lg">Send Message</button>
+                    </form>
+                    <div id="successMessage" class="alert alert-success d-none mt-3" role="alert">
+                        ✓ Thank you! We'll be in touch soon.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2026 SKYMAN GROUP. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="app.js"></script>
+</body>
+
+</html>
