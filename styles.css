@@ -281,6 +281,76 @@ body {
 }
 
 /* ============================================
+   LOCATION SECTION
+   ============================================ */
+
+#location {
+    background-color: #ffffff;
+    padding: 5rem 0 !important;
+}
+
+#location .section-title {
+    margin-bottom: 3rem;
+}
+
+#location .section-title::after {
+    background-color: var(--accent-blue);
+}
+
+.info-card {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e8f4f8 100%);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    height: 100%;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.info-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 212, 255, 0.15);
+    border-color: var(--accent-blue);
+}
+
+.info-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+#location .info-card:nth-child(2) .info-icon {
+    animation-delay: 0.2s;
+}
+
+.info-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-navy);
+    margin-bottom: 1.5rem;
+}
+
+.info-text {
+    color: var(--text-gray);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.phone-link,
+.email-link {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.phone-link:hover,
+.email-link:hover {
+    color: #00b0d4;
+    text-decoration: underline;
+}
+
+/* ============================================
    CONTACT SECTION
    ============================================ */
 
