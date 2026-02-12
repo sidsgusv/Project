@@ -32,6 +32,45 @@ body {
 }
 
 /* ============================================
+   BACK TO TOP BUTTON
+   ============================================ */
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--accent-blue), #0099cc);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 212, 255, 0.4);
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.back-to-top:hover {
+    background: linear-gradient(135deg, #0099cc, var(--accent-blue));
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 212, 255, 0.6);
+}
+
+.back-to-top:active {
+    transform: translateY(-1px);
+}
+
+.back-to-top.show {
+    display: flex;
+}
+
+/* ============================================
    NAVBAR
    ============================================ */
 

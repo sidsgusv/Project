@@ -100,12 +100,12 @@ function createRoad() {
     // Lane markings (simple lines)
     const lineGeometry = new THREE.BufferGeometry();
     const linePoints = [];
-    
+
     for (let i = -100; i <= 100; i += 5) {
         linePoints.push(new THREE.Vector3(-15, 0.01, i));
         linePoints.push(new THREE.Vector3(15, 0.01, i));
     }
-    
+
     lineGeometry.setFromPoints(linePoints);
     const lineMaterial = new THREE.LineBasicMaterial({ color: 0xffff00 });
     const lines = new THREE.Line(lineGeometry, lineMaterial);
@@ -259,6 +259,20 @@ function onVisibilityChange() {
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize Three.js
     initThreeJS();
+
+    // Back to Top Link
+    const backToTopLink = document.getElementById('backToTop');
+
+    if (backToTopLink) {
+        // Show/hide link based on scroll position
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopLink.classList.add('show');
+            } else {
+                backToTopLink.classList.remove('show');
+            }
+        });
+    }
 
     // Form submission
     const contactForm = document.getElementById('contactForm');
