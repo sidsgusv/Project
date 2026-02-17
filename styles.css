@@ -506,6 +506,10 @@ footer a:hover {
     text-decoration: underline;
 }
 
+.footer-separator {
+    color: var(--accent-blue);
+}
+
 /* ============================================
    RESPONSIVE DESIGN
    ============================================ */
