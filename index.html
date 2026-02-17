@@ -18,7 +18,10 @@
     <nav class="navbar navbar-dark sticky-top" id="navbar">
         <div class="container-fluid">
             <a href="#hero" class="navbar-brand mb-0 h1 fw-bold">SKYMAN GROUP</a>
-            <ul class="nav nav-pills gap-3">
+            <button class="navbar-toggler" type="button" id="navToggle">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <ul class="nav nav-pills gap-3" id="navMenu">
                 <li class="nav-item">
                     <a class="nav-link" href="#services">Services</a>
                 </li>
@@ -27,9 +30,6 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#location">Location</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact</a>
                 </li>
             </ul>
         </div>
@@ -42,7 +42,7 @@
         <div class="hero-content">
             <h1 class="hero-title">SKYMAN GROUP</h1>
             <p class="hero-subtitle">Skyman Group never lets the customer down!</p>
-            <button class="btn btn-lg cta-button" onclick="scrollToSection('#contact')">Get a Quote</button>
+
         </div>
     </section>
 
@@ -51,7 +51,7 @@
         <div class="container">
             <h2 class="section-title text-center mb-5">Our Services</h2>
             <div class="row g-4">
-                <div class="col-md-4">
+                <div class="col-12 col-sm-6 col-md-4">
                     <div class="service-card text-center">
                         <div class="service-icon">
                             <i class="icon">🌐</i>
@@ -61,7 +61,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-12 col-sm-6 col-md-4">
                     <div class="service-card text-center">
                         <div class="service-icon">
                             <i class="icon">⏱️</i>
@@ -71,7 +71,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-12 col-sm-6 col-md-4">
                     <div class="service-card text-center">
                         <div class="service-icon">
                             <i class="icon">🛡️</i>
@@ -91,8 +91,7 @@
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center">
                     <p class="lead mb-3">
-                        With over a decade of trusted service in the trucking industry, SKYMAN GROUP is committed to
-                        delivering excellence on every route.
+                        SKYMAN GROUP is committed to delivering reliable, high-quality service on every route.
                     </p>
                     <p class="mb-3">
                         Our customer-first approach ensures your freight arrives safely, on time, and in perfect
@@ -111,7 +110,7 @@
         <div class="container">
             <h2 class="section-title text-center mb-5">Find Us</h2>
             <div class="row g-4">
-                <div class="col-md-6">
+                <div class="col-12 col-md-6">
                     <div class="info-card text-center">
                         <div class="info-icon">📍</div>
                         <h3>Our Address</h3>
@@ -126,7 +125,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-12 col-md-6">
                     <div class="info-card text-center">
                         <div class="info-icon">📞</div>
                         <h3>Contact Information</h3>
@@ -137,36 +136,6 @@
                             <strong>Email:</strong><br>
                             <a href="mailto:info@skyman.com" class="email-link"></a>
                         </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-5">
-        <div class="container">
-            <h2 class="section-title text-center mb-5">Get in Touch</h2>
-            <div class="row">
-                <div class="col-lg-6 mx-auto">
-                    <form id="contactForm" class="contact-form">
-                        <div class="mb-3">
-                            <input type="text" class="form-control" id="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="tel" class="form-control" id="phone" placeholder="Phone Number" required>
-                        </div>
-                        <div class="mb-3">
-                            <input type="email" class="form-control" id="email" placeholder="Email Address" required>
-                        </div>
-                        <div class="mb-3">
-                            <textarea class="form-control" id="message" rows="5" placeholder="Your Message"
-                                required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100 btn-lg">Send Message</button>
-                    </form>
-                    <div id="successMessage" class="alert alert-success d-none mt-3" role="alert">
-                        ✓ Thank you! We'll be in touch soon.
                     </div>
                 </div>
             </div>

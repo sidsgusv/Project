@@ -20,6 +20,7 @@
 
 html {
     scroll-behavior: smooth;
+    -webkit-tap-highlight-color: rgba(0, 212, 255, 0.2);
 }
 
 body {
@@ -29,6 +30,8 @@ body {
     -webkit-font-smoothing: antialiased;
     color: #333;
     background-color: #ffffff;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
 }
 
 /* ============================================
@@ -54,6 +57,8 @@ body {
     box-shadow: 0 4px 12px rgba(0, 212, 255, 0.4);
     transition: all 0.3s ease;
     z-index: 999;
+    will-change: transform;
+    text-decoration: none;
 }
 
 .back-to-top:hover {
@@ -244,6 +249,7 @@ body {
     height: 100%;
     transition: all 0.3s ease;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    will-change: transform;
 }
 
 .service-card:hover {
@@ -344,6 +350,7 @@ body {
     height: 100%;
     transition: all 0.3s ease;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    will-change: transform;
 }
 
 .info-card:hover {
@@ -488,21 +495,165 @@ footer p {
     letter-spacing: 0.05em;
 }
 
+footer a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #00b0d4;
+    text-decoration: underline;
+}
+
 /* ============================================
    RESPONSIVE DESIGN
    ============================================ */
 
+/* Mobile Navigation Toggle */
+.navbar-toggler {
+    display: none;
+    background-color: transparent;
+    border: 2px solid var(--accent-blue);
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-height: 44px;
+    min-width: 44px;
+}
+
+.navbar-toggler:hover {
+    background-color: rgba(0, 212, 255, 0.1);
+    transform: scale(1.05);
+}
+
+.navbar-toggler-icon {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: var(--accent-blue);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+    content: '';
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: var(--accent-blue);
+    position: absolute;
+    transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon::before {
+    top: -8px;
+}
+
+.navbar-toggler-icon::after {
+    bottom: -8px;
+}
+
+/* Tablet and Medium Devices */
+@media (max-width: 992px) {
+    .navbar-brand {
+        font-size: 1.4rem;
+    }
+
+    #navbar .nav {
+        gap: 1.5rem !important;
+    }
+
+    #navbar .nav-link {
+        font-size: 0.95rem;
+    }
+
+    .hero-title {
+        font-size: clamp(2.5rem, 7vw, 4.5rem);
+    }
+
+    .hero-subtitle {
+        font-size: clamp(1.1rem, 2.5vw, 1.7rem);
+    }
+
+    .section-title {
+        font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+    }
+
+    .service-card,
+    .info-card {
+        padding: 2rem 1.5rem;
+    }
+
+    #about .col-lg-8 {
+        padding: 0 2rem;
+    }
+}
+
+/* Mobile Landscape and Tablets */
 @media (max-width: 768px) {
+    .navbar-toggler {
+        display: block;
+    }
+
+    #navMenu {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 250px;
+        height: calc(100vh - 70px);
+        background: linear-gradient(to bottom, rgba(13, 27, 42, 0.98), rgba(13, 27, 42, 0.95));
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        padding: 2rem 1rem;
+        gap: 0 !important;
+        border-left: 1px solid rgba(0, 212, 255, 0.2);
+        transition: right 0.4s ease;
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
+        z-index: 999;
+    }
+
+    #navMenu.active {
+        right: 0;
+    }
+
+    #navMenu .nav-item {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    #navMenu .nav-link {
+        width: 100%;
+        padding: 1rem 1.5rem;
+        text-align: left;
+        border-radius: 8px;
+        font-size: 1.1rem;
+    }
+
+    #navMenu .nav-link::after {
+        display: none;
+    }
+
+    #navMenu .nav-link:hover {
+        background-color: rgba(0, 212, 255, 0.1);
+    }
+
     .navbar-brand {
         font-size: 1.3rem;
     }
 
-    #navbar .nav-link {
-        font-size: 0.9rem;
+    .hero-content {
+        padding: 2rem 1rem;
     }
 
-    .hero-content {
-        padding: 2rem;
+    .hero-title {
+        font-size: clamp(2rem, 6vw, 3.5rem);
+    }
+
+    .hero-subtitle {
+        font-size: clamp(1rem, 2vw, 1.5rem);
     }
 
     .cta-button {
@@ -510,31 +661,210 @@ footer p {
         padding: 0.7rem 2rem;
     }
 
-    .service-card {
+    .service-card,
+    .info-card {
         padding: 2rem 1.5rem;
     }
 
-    #about p,
-    #contact p {
+    #about p {
         font-size: 1rem;
+    }
+
+    #about .col-lg-8 {
+        padding: 0 1.5rem;
+    }
+
+    .back-to-top {
+        width: 45px;
+        height: 45px;
+        right: 20px;
+        bottom: 20px;
+        font-size: 20px;
+    }
+
+    #services,
+    #about,
+    #location {
+        padding: 3.5rem 0 !important;
+    }
+
+    footer {
+        padding: 1.5rem 0 !important;
     }
 }
 
+/* Mobile Portrait */
 @media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 1.1rem;
+        letter-spacing: 0.05em;
+    }
+
+    #navbar {
+        padding: 0.75rem 0;
+    }
+
+    #navMenu {
+        width: 100%;
+        right: -100%;
+        top: 60px;
+        height: calc(100vh - 60px);
+    }
+
+    .hero {
+        height: 100svh;
+        /* Use small viewport height for mobile */
+    }
+
+    .hero-content {
+        padding: 1.5rem 1rem;
+    }
+
     .hero-title {
+        font-size: clamp(1.8rem, 8vw, 2.8rem);
         margin-bottom: 1rem;
+        letter-spacing: 0.03em;
     }
 
     .hero-subtitle {
+        font-size: clamp(0.95rem, 3.5vw, 1.3rem);
         margin-bottom: 1.5rem;
     }
 
+    .cta-button {
+        font-size: 0.9rem;
+        padding: 0.65rem 1.5rem;
+    }
+
     .section-title {
+        font-size: clamp(1.5rem, 6vw, 2rem);
         margin-bottom: 2rem;
     }
 
-    .contact-form {
+    #services .section-title::after,
+    #location .section-title::after {
+        width: 60px;
+        height: 3px;
+        margin-top: 1rem;
+    }
+
+    .service-card,
+    .info-card {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .service-icon,
+    .info-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .service-card h3,
+    .info-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .service-card p,
+    .info-text {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    #about p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    #about .lead {
+        font-size: 1.05rem;
+    }
+
+    #about .col-lg-8 {
         padding: 0 1rem;
+    }
+
+    .contact-form {
+        padding: 0 0.5rem;
+    }
+
+    .contact-form .form-control {
+        font-size: 0.95rem;
+        padding: 0.65rem 0.85rem;
+    }
+
+    .contact-form .btn-primary {
+        font-size: 1rem;
+        padding: 0.7rem 1rem;
+    }
+
+    .back-to-top {
+        width: 40px;
+        height: 40px;
+        right: 15px;
+        bottom: 15px;
+        font-size: 18px;
+    }
+
+    #services,
+    #about,
+    #location,
+    #contact {
+        padding: 3rem 0 !important;
+    }
+
+    footer {
+        padding: 1.25rem 0 !important;
+        font-size: 0.9rem;
+    }
+
+    footer p {
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem !important;
+    }
+
+    footer a {
+        font-size: 0.85rem;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 400px) {
+    .navbar-brand {
+        font-size: 1rem;
+    }
+
+    .hero-title {
+        font-size: clamp(1.5rem, 7vw, 2.3rem);
+    }
+
+    .service-card,
+    .info-card {
+        padding: 1.25rem 1rem;
+    }
+
+    .section-title {
+        font-size: clamp(1.3rem, 5.5vw, 1.8rem);
+    }
+}
+
+/* Improve touch targets for mobile */
+@media (hover: none) and (pointer: coarse) {
+
+    .nav-link,
+    .back-to-top,
+    .navbar-toggler {
+        min-height: 44px;
+        min-width: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .service-card,
+    .info-card {
+        transition: none;
+        /* Disable hover effects on touch devices */
     }
 }
 

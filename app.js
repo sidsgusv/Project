@@ -260,6 +260,41 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize Three.js
     initThreeJS();
 
+    // Mobile Navigation Toggle
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    const navLinks = document.querySelectorAll('#navbar .nav-link');
+
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Close menu on scroll (mobile UX improvement)
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (Math.abs(scrollTop - lastScrollTop) > 50) {
+                navMenu.classList.remove('active');
+                lastScrollTop = scrollTop;
+            }
+        }, { passive: true });
+    }
+
     // Back to Top Link
     const backToTopLink = document.getElementById('backToTop');
 
@@ -320,7 +355,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Smooth active link highlighting
-    const navLinks = document.querySelectorAll('#navbar .nav-link');
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             navLinks.forEach(l => l.classList.remove('active'));
